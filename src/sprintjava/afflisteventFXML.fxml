@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="467.0" prefWidth="757.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sprintjava.AfflisteventFXMLController">
+   <children>
+      <Text layoutX="212.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Liste des Events">
+         <font>
+            <Font size="48.0" />
+         </font>
+      </Text>
+      <TableView fx:id="tableEvent" layoutX="44.0" layoutY="174.0" prefHeight="203.0" prefWidth="669.0">
+        <columns>
+          <TableColumn fx:id="id" prefWidth="38.0" text="ID" />
+          <TableColumn fx:id="date" prefWidth="87.0" text="Date" />
+            <TableColumn fx:id="lieu" prefWidth="78.0" text="Lieu" />
+            <TableColumn fx:id="cap" prefWidth="57.0" text="Capacite" />
+            <TableColumn fx:id="nom" prefWidth="74.0" text="Nom" />
+            <TableColumn fx:id="desc" prefWidth="165.0" text="Desc" />
+            <TableColumn fx:id="prix" prefWidth="57.0" text="Prix" />
+            <TableColumn fx:id="img" prefWidth="112.0" text="Image" />
+        </columns>
+      </TableView>
+      <Button fx:id="modifE" layoutX="527.0" layoutY="408.0" mnemonicParsing="false" text="Modifier" />
+      <Button fx:id="suppE" layoutX="619.0" layoutY="408.0" mnemonicParsing="false" text="Supprimer" />
+      <Button fx:id="ajoutE" layoutX="27.0" layoutY="408.0" mnemonicParsing="false" text="Ajouter Event" />
+      <TextField fx:id="rechercheEvent" layoutX="138.0" layoutY="122.0" />
+      <Button layoutX="353.0" layoutY="122.0" mnemonicParsing="false" onAction="#rechercheEvent" text="Recherche" />
+   </children>
+</AnchorPane>

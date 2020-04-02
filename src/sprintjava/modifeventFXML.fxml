@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sprintjava.ModifeventFXMLController">
+   <children>
+      <Text layoutX="168.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Modifier Event">
+         <font>
+            <Font size="46.0" />
+         </font>
+      </Text>
+      <Text layoutX="74.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date" />
+      <Text layoutX="75.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lieu" />
+      <Text layoutX="76.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Capacite" />
+      <Text layoutX="75.0" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom" />
+      <Text layoutX="68.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Descriprion" />
+      <Text layoutX="66.0" layoutY="346.0" strokeType="OUTSIDE" strokeWidth="0.0" text="prix" />
+      <Button fx:id="imgg" layoutX="291.0" layoutY="361.0" mnemonicParsing="false" onAction="#imgupload" text="Choisir image" />
+      <Button fx:id="btn_modifE" layoutX="493.0" layoutY="329.0" mnemonicParsing="false" onAction="#modifierEvent" text="Modifier" />
+      <DatePicker fx:id="date" layoutX="136.0" layoutY="122.0" />
+      <TextField fx:id="lieu" layoutX="136.0" layoutY="162.0" />
+      <TextField fx:id="cap" layoutX="136.0" layoutY="197.0" />
+      <TextField fx:id="nom" layoutX="136.0" layoutY="232.0" />
+      <TextField fx:id="prix" layoutX="136.0" layoutY="329.0" />
+      <TextArea fx:id="desc" layoutX="137.0" layoutY="271.0" prefHeight="39.0" prefWidth="184.0" />
+      <Button fx:id="retourbtn" layoutX="412.0" layoutY="329.0" mnemonicParsing="false" onAction="#BackListEvent" text="Annuler" />
+   </children>
+</AnchorPane>
