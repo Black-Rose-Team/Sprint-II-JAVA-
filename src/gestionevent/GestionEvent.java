@@ -34,14 +34,12 @@ public class GestionEvent extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
         
-         FXMLLoader loader = new FXMLLoader(getClass().getResource("AjouterEvent.fxml"));
+          Parent root = FXMLLoader.load(getClass().getResource("AjouterEvent.fxml"));
         
+        Scene scene = new Scene(root);
         
-           Parent root =  loader.load() ; 
-           Scene scene = new Scene(root);
-           Stage stage = new Stage () ; 
-           stage.setScene(scene);
-           stage.show();
+        stage.setScene(scene);
+        stage.show();
             
             
        /* Button btn = new Button();
