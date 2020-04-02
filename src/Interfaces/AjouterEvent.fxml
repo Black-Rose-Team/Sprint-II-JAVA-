@@ -19,39 +19,39 @@
             <Font name="Arial Bold" size="14.0" />
          </font>
       </Text>
-      <DatePicker layoutX="151.0" layoutY="102.0" />
+      <DatePicker fx:id="dateEvent" layoutX="151.0" layoutY="102.0" />
       <Text layoutX="47.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lieu Event">
          <font>
             <Font name="Arial Bold" size="14.0" />
          </font>
       </Text>
-      <TextField layoutX="151.0" layoutY="149.0" promptText="veuillez choisir le lieu" />
+      <TextField fx:id="lieuEvent" layoutX="151.0" layoutY="149.0" promptText="veuillez choisir le lieu" />
       <Text layoutX="51.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Capacité ">
          <font>
             <Font name="Arial Bold" size="14.0" />
          </font>
       </Text>
-      <TextField layoutX="151.0" layoutY="195.0" promptText="veuillez saisir la capacite" />
+      <TextField fx:id="capEvent" layoutX="151.0" layoutY="195.0" promptText="veuillez saisir la capacite" />
       <Text layoutX="51.0" layoutY="254.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nom Event">
          <font>
             <Font name="Arial Bold" size="14.0" />
          </font>
       </Text>
-      <TextField layoutX="151.0" layoutY="237.0" promptText="veuillez saisir le nom" />
+      <TextField fx:id="nomEvent" layoutX="151.0" layoutY="237.0" promptText="veuillez saisir le nom" />
       <Text layoutX="51.0" layoutY="297.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description">
          <font>
             <Font name="Arial Bold" size="14.0" />
          </font>
       </Text>
-      <TextArea layoutX="151.0" layoutY="286.0" prefHeight="52.0" prefWidth="223.0" promptText="veuillez decrire votre event" />
+      <TextArea fx:id="description" layoutX="151.0" layoutY="286.0" prefHeight="52.0" prefWidth="223.0" promptText="veuillez decrire votre event" />
       <Text layoutX="51.0" layoutY="368.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prix de ticket ">
          <font>
             <Font name="Arial Bold" size="14.0" />
          </font>
       </Text>
-      <TextField layoutX="151.0" layoutY="358.0" promptText="veuillez saisir le prix" />
-      <Button layoutX="390.0" layoutY="358.0" mnemonicParsing="false" text="Choisir image" textFill="#356f28" />
-      <Button layoutX="525.0" layoutY="356.0" mnemonicParsing="false" onAction="#ajoutEventbtn" text="Ajouter" textFill="#313ba4">
+      <TextField fx:id="ticketPrice" layoutX="151.0" layoutY="358.0" promptText="veuillez saisir le prix" />
+      <Button fx:id="eventImg" layoutX="390.0" layoutY="358.0" mnemonicParsing="false" onAction="#Upload" text="Choisir image" textFill="#356f28" />
+      <Button fx:id="ajouterEvent" layoutX="525.0" layoutY="356.0" mnemonicParsing="false" onAction="#ajoutEventbtn" text="Ajouter" textFill="#313ba4">
          <font>
             <Font size="13.0" />
          </font>

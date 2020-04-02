@@ -10,6 +10,7 @@ import Entities.ReservationEvent;
 import Services.ServiceEvent;
 import Services.ServiceReservationEvent;
 import Utiles.DataSource;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.SQLException;
@@ -17,6 +18,8 @@ import java.util.List;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
@@ -29,8 +32,19 @@ import javafx.stage.Stage;
 public class GestionEvent extends Application {
     
     @Override
-    public void start(Stage primaryStage) {
-        Button btn = new Button();
+    public void start(Stage primaryStage) throws IOException {
+        
+         FXMLLoader loader = new FXMLLoader(getClass().getResource("AjouterEvent.fxml"));
+        
+        
+           Parent root =  loader.load() ; 
+           Scene scene = new Scene(root);
+           Stage stage = new Stage () ; 
+           stage.setScene(scene);
+           stage.show();
+            
+            
+       /* Button btn = new Button();
         btn.setText("Say 'Hello World'");
         btn.setOnAction(new EventHandler<ActionEvent>() {
             
@@ -47,7 +61,7 @@ public class GestionEvent extends Application {
         
         primaryStage.setTitle("Hello World!");
         primaryStage.setScene(scene);
-        primaryStage.show();
+        primaryStage.show();*/
     }
 
     /**
@@ -56,14 +70,14 @@ public class GestionEvent extends Application {
      */
     public static void main(String[] args) throws SQLException {
         //WidgetsFlutterBinding.ensureInitialized();
-        //launch(args);
-        DataSource ds = DataSource.getInstance();
-        Connection cnx = DataSource.getInstance().getCnx();
+        launch(args);
+        //DataSource ds = DataSource.getInstance();
+        //Connection cnx = DataSource.getInstance().getCnx();
         
         
-        Event e1 = new Event(new Date(2020, 10, 03), "Hawaria", 1, 8, "be there!", "jhgfds", 15, "esrdtf");
-        Event e2 = new Event(new Date(2020, 03, 11), "Rafraf", 4, 17, "Perfection", "il est temps", 10, "szqes");
-        ServiceEvent ev = new ServiceEvent();
+        //Event e1 = new Event(new Date(2020, 10, 03), "Hawaria", 8, "be there!", "jhgfds", 15, "esrdtf");
+        //Event e2 = new Event(new Date(2020, 03, 11), "Rafraf", 17, "Perfection", "il est temps", 10, "szqes");
+        //ServiceEvent ev = new ServiceEvent();
         
             //ev.ajouterEvent(e1);
             //ev.modifierEvent(e1,17);
@@ -77,7 +91,7 @@ public class GestionEvent extends Application {
             
             
             
-            ServiceReservationEvent res = new ServiceReservationEvent();
+            //ServiceReservationEvent res = new ServiceReservationEvent();
         
             //boolean l =res.participerEvent(19,6);
             //boolean an =res.annulerParticipEvent(19,6);

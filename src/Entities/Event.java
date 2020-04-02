@@ -37,10 +37,10 @@ public class Event {
         this.eventImg = eventImg;
     }
 
-    public Event(Date dateevent, String lieuevent, int nbrepersonnes, int capevent, String nomevent, String description, float ticketprice, String eventImg) {
+    public Event(Date dateevent, String lieuevent, int capevent, String nomevent, String description, float ticketprice, String eventImg) {
         this.dateevent = dateevent;
         this.lieuevent = lieuevent;
-        this.nbrepersonnes = nbrepersonnes;
+        //this.nbrepersonnes = nbrepersonnes;
         this.capevent = capevent;
         this.nomevent = nomevent;
         this.description = description;
