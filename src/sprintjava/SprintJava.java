@@ -19,8 +19,9 @@ public class SprintJava extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-       //Parent root = FXMLLoader.load(getClass().getResource("ajouteventFXML.fxml"));
-       Parent root = FXMLLoader.load(getClass().getResource("afflisteventFXML.fxml"));
+       Parent root = FXMLLoader.load(getClass().getResource("ajouteventFXML.fxml"));
+       //Parent root = FXMLLoader.load(getClass().getResource("afflisteventFXML.fxml"));
+       //Parent root = FXMLLoader.load(getClass().getResource("tunisMapFXML.fxml"));
        //Parent root = FXMLLoader.load(getClass().getResource("modifeventFXML.fxml"));   
        
         Scene scene = new Scene(root);

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox fx:id="root_vbox" prefHeight="529.0" prefWidth="655.0" stylesheets="@tunismapfxml.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sprintjava.TunisMapFXMLController">
+   <children>
+      <HBox alignment="CENTER_LEFT" spacing="5.0">
+         <children>
+            <Label text="Zoom" />
+            <Button mnemonicParsing="false" onAction="#zoomOut" text="-" />
+            <Slider fx:id="zoom_slider" />
+            <Button mnemonicParsing="false" onAction="#zoomIn" text="+" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Label text="Visuals" />
+            <ToggleButton fx:id="contrast_togglebutton" mnemonicParsing="false" onAction="#sylingContrast" text="Hi Contrast" />
+            <ToggleButton fx:id="size_togglebutton" mnemonicParsing="false" onAction="#stylingSizing" text="Large UI" />
+         </children>
+         <VBox.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </VBox.margin>
+      </HBox>
+      <SplitPane dividerPositions="0.32608695652173914" VBox.vgrow="ALWAYS">
+         <items>
+            <ListView fx:id="map_listview" onMouseClicked="#listClicked" prefHeight="398.0" prefWidth="242.0" />
+            <ScrollPane fx:id="map_scrollpane" prefHeight="200.0" prefWidth="200.0">
+               <content>
+                  <Pane>
+                     <children>
+                        <ImageView layoutX="-30.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@map.png" />
+                           </image>
+                        </ImageView>
+                        <MenuButton fx:id="map_pin" layoutX="36.0" layoutY="172.0" mnemonicParsing="false" styleClass="map-pin">
+                          <items>
+                            <MenuItem fx:id="pin_info" mnemonicParsing="false" text="Action 1" />
+                          </items>
+                        </MenuButton>
+                     </children>
+                  </Pane>
+               </content>
+            </ScrollPane>
+         </items>
+      </SplitPane>
+   </children>
+</VBox>

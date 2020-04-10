@@ -38,6 +38,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.util.Callback;
+import javax.management.Notification;
+import org.controlsfx.control.action.Action;
+import org.controlsfx.tools.Utils;
 
 /**
  * FXML Controller class
@@ -184,7 +187,7 @@ public class AfflisteventFXMLController implements Initializable {
     }
 
     
-    
+  
    
          
 public void rafrechir() throws SQLException
