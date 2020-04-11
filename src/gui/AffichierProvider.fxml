@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="900.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AffichierProviderController">
+  <children>
+      <ImageView fitHeight="1000.0" fitWidth="1600.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/backGround.png" />
+         </image>
+      </ImageView>
+    <Button fx:id="supprimer" layoutX="985.0" layoutY="772.0" minHeight="38.9998779296875" mnemonicParsing="false" onAction="#supprimer" prefHeight="82.0" prefWidth="254.0" stylesheets="@../css/style.css" text="supprimer" />
+    <Button fx:id="annuler" layoutX="1399.0" layoutY="906.0" mnemonicParsing="false" onAction="#annuler" prefHeight="70.0" prefWidth="158.0" style="-fx-background-color: &#10;        linear-gradient(#ffd65b, #e68400),&#10;        linear-gradient(#ffef84, #f2ba44),&#10;        linear-gradient(#ffea6a, #efaa22),&#10;        linear-gradient(#ffe657 0%, #f8c202 50%, #eea10b 100%),&#10;        linear-gradient(from 0% 0% to 15% 50%, rgba(255,255,255,0.9), rgba(255,255,255,0));&#10;    -fx-background-radius: 30;&#10;    -fx-background-insets: 0,1,2,3,0;&#10;    -fx-text-fill: #654b00;&#10;    -fx-font-weight: bold;&#10;    -fx-font-size: 14px;&#10;    -fx-padding: 10 20 10 20;" text="annuler" />
+      <TableView fx:id="table" layoutX="599.0" layoutY="200.0" onMouseClicked="#fill" prefHeight="548.0" prefWidth="978.0">
+        <columns>
+          <TableColumn fx:id="tfId" prefWidth="96.800048828125" text="ID" />
+          <TableColumn fx:id="tfName" minWidth="4.79998779296875" prefWidth="165.5999755859375" text="Name" />
+            <TableColumn fx:id="tfMail" minWidth="0.0" prefWidth="342.39990234375" text="Mail" />
+            <TableColumn fx:id="tfTel" minWidth="0.0" prefWidth="169.066650390625" text="Tel" />
+            <TableColumn fx:id="tfPassword" minWidth="0.0" prefWidth="199.2000732421875" text="Password" />
+        </columns>
+         <effect>
+            <ColorAdjust brightness="-0.06" contrast="0.23" hue="-0.07" saturation="-0.36" />
+         </effect>
+      </TableView>
+      <TextField fx:id="bId" disable="true" layoutX="22.0" layoutY="265.0" opacity="0.0" prefHeight="0.0" prefWidth="14.0" />
+      <TextField fx:id="bPassword" disable="true" layoutX="177.0" layoutY="207.0" opacity="0.0" prefHeight="26.0" prefWidth="14.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#242323" height="1000.0" layoutX="-2.0" layoutY="-1.0" opacity="0.72" stroke="#545454" strokeLineCap="BUTT" strokeType="INSIDE" strokeWidth="10.0" width="574.0" />
+      <ImageView fitHeight="245.0" fitWidth="227.0" layoutX="159.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/logo%20+%20slogan.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="bvalider" layoutX="22.0" layoutY="840.0" mnemonicParsing="false" onAction="#ajouter" prefHeight="68.0" prefWidth="246.0" stylesheets="@../css/style.css" text="valider">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="modifierex" layoutX="303.0" layoutY="840.0" mnemonicParsing="false" onAction="#modifierex" prefHeight="68.0" prefWidth="246.0" stylesheets="@../css/style.css" text="modifier">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <TextField fx:id="bTel" alignment="CENTER" layoutX="54.0" layoutY="692.0" prefHeight="60.0" prefWidth="467.0" promptText="Phone Number " styleClass="input" stylesheets="@../css/style.css">
+         <font>
+            <Font name="Perpetua" size="24.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="bMail" alignment="CENTER" layoutX="54.0" layoutY="586.0" prefHeight="60.0" prefWidth="467.0" promptText="E-Mail" styleClass="input" stylesheets="@../css/style.css">
+         <font>
+            <Font name="Perpetua" size="24.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="bName" alignment="CENTER" layoutX="54.0" layoutY="478.0" prefHeight="60.0" prefWidth="467.0" promptText="Name" styleClass="input" stylesheets="@../css/style.css">
+         <font>
+            <Font name="Perpetua" size="24.0" />
+         </font>
+      </TextField>
+      <Label alignment="CENTER" layoutX="42.0" layoutY="284.0" prefHeight="85.0" prefWidth="492.0" text="Add New Provider " textFill="#cd9826">
+         <font>
+            <Font name="Perpetua" size="64.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="749.0" layoutY="42.0" prefHeight="119.0" prefWidth="726.0" text="Your Providers List" textFill="#cd9826">
+         <font>
+            <Font name="Perpetua" size="96.0" />
+         </font>
+      </Label>
+  </children>
+</AnchorPane>
