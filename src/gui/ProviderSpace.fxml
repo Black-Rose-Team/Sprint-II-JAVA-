@@ -1,22 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="900.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/8.0.221" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ProviderSpaceController">
+<AnchorPane id="AnchorPane" prefHeight="900.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ProviderSpaceController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1c1a12" height="1026.0" layoutX="663.0" layoutY="-13.0" opacity="0.8" stroke="BLACK" strokeType="INSIDE" width="944.0" />
+      <ImageView fitHeight="1017.0" fitWidth="1605.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="file:/C:/Users/Admin/Documents/NetBeansProjects/project/src/images/backGround.png" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#444444" height="995.0" layoutX="627.0" layoutY="4.0" opacity="0.53" stroke="BLACK" strokeType="INSIDE" width="978.0" />
       <Label fx:id="lporovider" layoutX="213.0" layoutY="34.0" opacity="0.0" prefHeight="87.0" prefWidth="255.0">
          <font>
             <Font size="48.0" />
          </font></Label>
-      <Button fx:id="bSee" layoutX="904.0" layoutY="219.0" mnemonicParsing="false" onAction="#seeAction" prefHeight="67.0" prefWidth="464.0" text="See My Charges" />
-      <TableView fx:id="table" layoutX="774.0" layoutY="284.0" onMouseClicked="#fill" prefHeight="482.0" prefWidth="741.0">
+      <TableView fx:id="table" layoutX="781.0" layoutY="235.0" onMouseClicked="#fill" prefHeight="482.0" prefWidth="741.0">
          <columns>
             <TableColumn fx:id="tfId" prefWidth="120.79998779296875" text="ID" />
             <TableColumn fx:id="tfPrice" minWidth="0.0" prefWidth="118.4000244140625" text="Price" />
@@ -24,22 +32,85 @@
             <TableColumn fx:id="tfDate" minWidth="0.0" prefWidth="236.0" text="Date" />
          </columns>
       </TableView>
-      <Button fx:id="baccept" layoutX="921.0" layoutY="812.0" mnemonicParsing="false" onAction="#acceptAction" prefHeight="79.0" prefWidth="214.0" text="Accept">
+      <Button fx:id="baccept" layoutX="920.0" layoutY="889.0" mnemonicParsing="false" onAction="#acceptAction" prefHeight="79.0" prefWidth="214.0" stylesheets="file:/C:/Users/Admin/Documents/NetBeansProjects/project/src/css/style.css" text="Accept">
          <font>
             <Font name="Perpetua" size="18.0" />
          </font>
       </Button>
-      <Button fx:id="brefuse" layoutX="1177.0" layoutY="812.0" mnemonicParsing="false" onAction="#refuseAction" prefHeight="79.0" prefWidth="210.0" text="Refuse">
+      <Button fx:id="brefuse" layoutX="1177.0" layoutY="889.0" mnemonicParsing="false" onAction="#refuseAction" prefHeight="79.0" prefWidth="210.0" stylesheets="file:/C:/Users/Admin/Documents/NetBeansProjects/project/src/css/style.css" text="Refuse">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#444444" height="1013.0" layoutX="-2.0" layoutY="-1.0" opacity="0.8" stroke="BLACK" strokeType="INSIDE" width="669.0" />
-      <Button layoutX="69.0" layoutY="480.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="538.0" text="See Ur Informations" />
-      <Label alignment="CENTER" layoutX="759.0" layoutY="52.0" prefHeight="119.0" prefWidth="726.0" text="Your Charges List" textFill="#cd9826">
+      <Label alignment="CENTER" layoutX="753.0" layoutY="18.0" prefHeight="119.0" prefWidth="726.0" text="Your Charges List" textFill="#cd9826">
          <font>
             <Font name="Perpetua" size="96.0" />
          </font>
       </Label>
+      <Label alignment="CENTER" layoutX="-40.0" layoutY="14.0" prefHeight="119.0" prefWidth="726.0" text="Your Profile" textFill="#cd9826">
+         <font>
+            <Font name="Perpetua" size="96.0" />
+         </font>
+      </Label>
+      <TextField fx:id="bid" layoutX="48.0" layoutY="323.0" prefHeight="49.0" prefWidth="531.0" styleClass="input" stylesheets="file:/C:/Users/Admin/Documents/NetBeansProjects/project/src/css/style.css" />
+      <TextField fx:id="bname" layoutX="49.0" layoutY="423.0" prefHeight="50.0" prefWidth="531.0" styleClass="input" stylesheets="file:/C:/Users/Admin/Documents/NetBeansProjects/project/src/css/style.css" />
+      <TextField fx:id="bmail" layoutX="49.0" layoutY="525.0" prefHeight="50.0" prefWidth="531.0" styleClass="input" stylesheets="file:/C:/Users/Admin/Documents/NetBeansProjects/project/src/css/style.css" />
+      <TextField fx:id="bpwd" layoutX="48.0" layoutY="725.0" prefHeight="50.0" prefWidth="531.0" styleClass="input" stylesheets="file:/C:/Users/Admin/Documents/NetBeansProjects/project/src/css/style.css" />
+      <TextField fx:id="btel" layoutX="48.0" layoutY="625.0" prefHeight="50.0" prefWidth="531.0" styleClass="input" stylesheets="file:/C:/Users/Admin/Documents/NetBeansProjects/project/src/css/style.css" />
+      <Button fx:id="bseep" layoutX="44.0" layoutY="505.0" mnemonicParsing="false" onAction="#seeProfile" prefHeight="90.0" prefWidth="538.0" stylesheets="file:/C:/Users/Admin/Documents/NetBeansProjects/project/src/css/style.css" text="See Ur Informations">
+         <font>
+            <Font name="Perpetua" size="36.0" />
+         </font></Button>
+      <Label fx:id="l1" alignment="CENTER" layoutX="49.0" layoutY="272.0" prefHeight="50.0" prefWidth="531.0" text="Username" textFill="#cd9826">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label fx:id="l2" alignment="CENTER" layoutX="49.0" layoutY="373.0" prefHeight="50.0" prefWidth="531.0" text="Society Name" textFill="#cd9826">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label fx:id="l3" alignment="CENTER" layoutX="49.0" layoutY="476.0" prefHeight="50.0" prefWidth="531.0" text="E-mail" textFill="#cd9826">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label fx:id="l4" alignment="CENTER" layoutX="49.0" layoutY="575.0" prefHeight="50.0" prefWidth="531.0" text="Phone Number" textFill="#cd9826">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label fx:id="l5" alignment="CENTER" layoutX="48.0" layoutY="675.0" prefHeight="50.0" prefWidth="531.0" text="Password" textFill="#cd9826">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tablep" layoutX="36.0" layoutY="171.0" onMouseClicked="#fill" prefHeight="79.0" prefWidth="574.0">
+        <columns>
+          <TableColumn fx:id="a1" prefWidth="67.19997882843018" text="id" />
+          <TableColumn fx:id="a2" prefWidth="83.20001220703125" text="name" />
+            <TableColumn fx:id="a3" prefWidth="154.40003967285156" text="email" />
+            <TableColumn fx:id="a4" prefWidth="131.199951171875" text="tel" />
+            <TableColumn fx:id="a5" prefWidth="137.60003662109375" text="password" />
+        </columns>
+      </TableView>
+      <Button fx:id="bedit" layoutX="187.0" layoutY="827.0" mnemonicParsing="false" onAction="#edit" prefHeight="61.0" prefWidth="238.0" stylesheets="file:/C:/Users/Admin/Documents/NetBeansProjects/project/src/css/style.css" text="Edit">
+         <font>
+            <Font name="Perpetua" size="24.0" />
+         </font>
+      </Button>
+      <ComboBox fx:id="c7" layoutX="966.0" layoutY="148.0" onAction="#tri" prefHeight="46.0" prefWidth="338.0" promptText="All" styleClass="input" stylesheets="@../css/style.css" />
+      <TextField fx:id="tfpr" layoutX="1020.0" layoutY="785.0" prefHeight="62.0" prefWidth="314.0" />
+      <Label fx:id="l55" alignment="CENTER" layoutX="1020.0" layoutY="719.0" prefHeight="62.0" prefWidth="314.0" text="Put The Price Here " textFill="#cd9826">
+         <font>
+            <Font name="Perpetua" size="36.0" />
+         </font>
+      </Label>
+      <Button fx:id="bSee" layoutX="912.0" layoutY="187.0" mnemonicParsing="false" onAction="#seeAction" prefHeight="67.0" prefWidth="464.0" stylesheets="file:/C:/Users/Admin/Documents/NetBeansProjects/project/src/css/style.css" text="See My Charges">
+         <font>
+            <Font name="Perpetua Bold" size="36.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

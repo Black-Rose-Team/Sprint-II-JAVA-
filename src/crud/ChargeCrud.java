@@ -16,6 +16,8 @@ import java.util.ArrayList;
 import java.util.List;
 import utils.DataBase;
 import java.sql.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 /**
  *
@@ -56,13 +58,12 @@ public class ChargeCrud implements IChargeCrud<Charge>{
     public void ajouter(Charge e) throws SQLException
     {
    
-       PreparedStatement pre=con.prepareStatement("INSERT INTO `cycle`.`Charge` (`date`,`provider`) VALUES ( ?, ?);");
+       PreparedStatement pre=con.prepareStatement("INSERT INTO `coco`.`Charge` (`date`,`provider`,`datem`) VALUES ( ?, ?, ?);");
          pre.setDate(1, e.getDate());
          pre.setString(2, e.getProvider());
-         
-         
-      
-   
+         DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");  
+         String strDate = dateFormat.format(e.getDate());  
+         pre.setString(3, strDate);
        pre.executeUpdate();
     }
             
@@ -71,7 +72,7 @@ public class ChargeCrud implements IChargeCrud<Charge>{
      @Override
     public void delete(Charge  e) throws SQLException 
     {
-        String sql = "DELETE FROM `cycle`.`Charge` where (id ="+e.getId()+");";
+        String sql = "DELETE FROM `coco`.`Charge` where (id ="+e.getId()+");";
    //String sql = "INSERT INTO fos_user(username) VALUES ('"+c.getUsername()+"');";
   
     try {
@@ -88,7 +89,7 @@ public class ChargeCrud implements IChargeCrud<Charge>{
      @Override
     public void update(Charge e) throws SQLException 
     {
-          String sql ="UPDATE `cycle`.`charge` SET `date`='"+e.getDate()+ "',`provider`='" +e.getProvider()+"' WHERE `id`='"+e.getId()+ "' ";
+          String sql ="UPDATE `coco`.`charge` SET `date`='"+e.getDate()+ "',`provider`='" +e.getProvider()+"' WHERE `id`='"+e.getId()+ "' ";
   
     try {
             Statement stl = con.createStatement();
@@ -155,9 +156,9 @@ public class ChargeCrud implements IChargeCrud<Charge>{
     return arr;
     }
     
-    public void accept(Charge e) throws SQLException 
+    public void accept(Charge e,float pr) throws SQLException 
     {
-          String sql ="UPDATE `cycle`.`charge` SET `state`='Accepted' WHERE `id`='"+e.getId()+ "' ";
+          String sql ="UPDATE `coco`.`charge` SET `state`='Accepted' , `price`='"+pr+"' WHERE `id`='"+e.getId()+ "' ";
   
     try {
             Statement stl = con.createStatement();
@@ -168,7 +169,7 @@ public class ChargeCrud implements IChargeCrud<Charge>{
     
     public void refuse(Charge e) throws SQLException 
     {
-          String sql ="UPDATE `cycle`.`charge` SET `state`='Refused' WHERE `id`='"+e.getId()+ "' ";
+          String sql ="UPDATE `coco`.`charge` SET `state`='Refused' WHERE `id`='"+e.getId()+ "' ";
   
     try {
             Statement stl = con.createStatement();
@@ -176,6 +177,53 @@ public class ChargeCrud implements IChargeCrud<Charge>{
                    } catch (SQLException ex) {
             System.err.println("SQLException: " + ex.getMessage());
     }}
+    
+    public List<Charge> tri(String status) throws SQLException {
+          System.out.println(status+"ya3tik 3asba :p");
+             List<Charge> arr=new ArrayList<>();
+             PreparedStatement preparedStatement;
+             ResultSet resultSet;
+           
+             String sql = "select * from charge where state = ? ";
+       
+             preparedStatement=con.prepareStatement(sql);
+             preparedStatement.setString(1, status);
+             resultSet = preparedStatement.executeQuery();
+     while (resultSet.next()) {                
+                int id=resultSet.getInt("id");
+               float price=resultSet.getFloat("price");     
+               String cprovider=resultSet.getString("provider");
+               String state=resultSet.getString("state");
+               Date date=resultSet.getDate("date");
+               Charge e=new Charge(id,price,state,date,cprovider);
+               arr.add(e);
+     }
+   return arr;     
+    }
+    
+     public List<Charge> trix(String status,String idp) throws SQLException {
+          System.out.println(status+"ya3tik 3asba :p");
+             List<Charge> arr=new ArrayList<>();
+             PreparedStatement preparedStatement;
+             ResultSet resultSet;
+           
+             String sql = "select * from charge where state = ? and provider = ? ";
+       
+             preparedStatement=con.prepareStatement(sql);
+             preparedStatement.setString(1, status);
+             preparedStatement.setString(2, idp);
+             resultSet = preparedStatement.executeQuery();
+     while (resultSet.next()) {                
+                int id=resultSet.getInt("id");
+               float price=resultSet.getFloat("price");     
+               String cprovider=resultSet.getString("provider");
+               String state=resultSet.getString("state");
+               Date date=resultSet.getDate("date");
+               Charge e=new Charge(id,price,state,date,cprovider);
+               arr.add(e);
+     }
+   return arr;     
+    }
     
     
 }

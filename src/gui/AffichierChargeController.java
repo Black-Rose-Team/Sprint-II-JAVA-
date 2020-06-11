@@ -16,18 +16,23 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableColumn;
@@ -35,8 +40,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.TilePane;
 import javafx.stage.Stage;
-
+import utils.Alert_1;
 /**
  * FXML Controller class
  *
@@ -65,7 +71,11 @@ public class AffichierChargeController implements Initializable {
     private TableView<Charge> table;
     
     ObservableList<Charge> data=FXCollections.observableArrayList();
+    ObservableList<Charge> datax=FXCollections.observableArrayList();
+    ObservableList<Provider> proData=FXCollections.observableArrayList();
     ObservableList<String> options=FXCollections.observableArrayList(); 
+    ObservableList<String> statex=FXCollections.observableArrayList("All","Not Seen","Accepted","Refused"); 
+    
     
     @FXML
     private Button bvalider;
@@ -83,7 +93,24 @@ public class AffichierChargeController implements Initializable {
     private TextField bState;
     
         ResultSet re=null;
+    
+    @FXML
+    private TableView<Provider> tp;
+    @FXML
+    private TableColumn<Provider, String> p1;
+    @FXML
+    private TableColumn<Provider, String> p2;
+    @FXML
+    private TableColumn<Provider, String> p3;
+    @FXML
+    private TableColumn<Provider, Integer> p4;
+    @FXML
+    private TableColumn<Provider, Integer> p5;
+    @FXML
+    private ComboBox<String> c7;
    
+
+    
                
     
   
@@ -106,6 +133,10 @@ public class AffichierChargeController implements Initializable {
             table.setItems(data);
             options.addAll(se.readProvider());
             bPro.setItems(options);
+            c7.setItems(statex);
+            
+           
+            
             
             
         } catch (SQLException ex) {
@@ -147,19 +178,41 @@ public class AffichierChargeController implements Initializable {
 
     @FXML
     private void supprimer(ActionEvent event) {
+         Alert alert =new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Delete Confirmation");
+        alert.setHeaderText(null);
+        alert.setContentText("Are you sure to delete ?");
         
+        Optional<ButtonType> result = alert.showAndWait();
+             
+        if (result.get() == ButtonType.OK) {
         try {
              Charge c = (Charge) table.getSelectionModel().getSelectedItem();
              ChargeCrud sc = new ChargeCrud();
             // as.delete(e);
              
            //  ArrayList arraylist = (ArrayList) as.afficher(e.getId_Charge());
+             if (!c.getState().equals("Accepted")) {
                sc.delete(c);
                       table.getItems().removeAll(c);
-
+                           Alert alert2 =new Alert(Alert.AlertType.INFORMATION);
+        alert2.setTitle("Information dialog");
+        alert2.setHeaderText(null);
+        alert2.setContentText("Charge Has been Removed !");
+        alert2.showAndWait();
+ }
+               else{
+                     Alert alert2 =new Alert(Alert.AlertType.WARNING);
+        alert2.setTitle("Warning dialog");
+        alert2.setHeaderText(null);
+        alert2.setContentText("This Charge Already Accepted you can't delete it");
+        alert2.showAndWait();
+               }
          } catch (SQLException ex) {
              Logger.getLogger(AffichierChargeController.class.getName()).log(Level.SEVERE, null, ex);
          }
+    }
+    
     }
     
     
@@ -173,6 +226,15 @@ public class AffichierChargeController implements Initializable {
            
     @FXML
     private void modifierex(ActionEvent event) {
+           
+              Alert alert =new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("editing Confirmation");
+        alert.setHeaderText(null);
+        alert.setContentText("Are you sure to edit this provider ?");
+        
+        Optional<ButtonType> result = alert.showAndWait();
+             
+        if (result.get() == ButtonType.OK) {
        try {
            
                 int iid=Integer.parseInt(bId.getText());
@@ -181,8 +243,7 @@ public class AffichierChargeController implements Initializable {
                 float iprice=Float.parseFloat(bPrice.getText());
                 Date idate=Date.valueOf(bDate.getValue());
 
-                
-            
+               if (!istate.equals("Accepted")) {   
             Charge e= new Charge(iid,iprice,istate,idate,iprovider);
              ChargeCrud ec= new ChargeCrud(); 
             ec.update(e);
@@ -190,26 +251,44 @@ public class AffichierChargeController implements Initializable {
             
             bId.clear();
             bPrice.clear();
-           
             bState.clear();
-
-            
-             
-            
             data.clear();
+            
             ChargeCrud se= new ChargeCrud();
             data.addAll(se.readAll());
             table.setItems(data);
             
+        Alert alert2 =new Alert(Alert.AlertType.INFORMATION);
+        alert2.setTitle("Information dialog");
+        alert2.setHeaderText(null);
+        alert2.setContentText("Charge Has been Edited !");
+        alert2.showAndWait();
+            
+               
+           }
+               else{
+                     Alert alert2 =new Alert(Alert.AlertType.WARNING);
+        alert2.setTitle("Warning dialog");
+        alert2.setHeaderText(null);
+        alert2.setContentText("This Charge Already Accepted you can't edit it");
+        alert2.showAndWait();
+               }
+ 
+           
         } catch (SQLException ex) {
             Logger.getLogger(AffichierChargeController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }}
         
     }
 
     @FXML
     private void annuler(ActionEvent event) {
-              try {
+           
+
+          
+            
+            
+        try {
             
             Parent root = FXMLLoader.load(getClass().getResource("Acceuil.fxml"));
            Scene scene = new Scene(root);
@@ -223,35 +302,44 @@ public class AffichierChargeController implements Initializable {
             System.out.println(ex.getMessage());
         }
     }
+              
     
-    
-    
-    @FXML
-    private void ajouter(ActionEvent event) {
-        try {
-                String iprovider=bPro.getValue();
-                Date idate=Date.valueOf(bDate.getValue());
-            
 
             
             
-            
-            Charge e= new Charge(idate,iprovider);
-             ChargeCrud ec= new ChargeCrud(); 
-            ec.ajouter(e);
-            
+    
+    @FXML
+    private void ajouter(ActionEvent event) {
+        Alert alert =new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("adding Confirmation");
+        alert.setHeaderText(null);
+        alert.setContentText("Are you sure to add a provider ?");
+        
+        Optional<ButtonType> result = alert.showAndWait();
+             
+        if (result.get() == ButtonType.OK) {
+        try {
+            String iprovider=bPro.getValue();
+            Date idate=Date.valueOf(bDate.getValue());
+            Charge ep= new Charge(idate,iprovider); 
+            ChargeCrud ec= new ChargeCrud();
+            ec.ajouter(ep);
             bPrice.clear();
             bState.clear();
-            
-             data.clear();
+            data.clear();
             ChargeCrud se= new ChargeCrud();
             data.addAll(se.readAll());
             table.setItems(data);
             
+            Alert alert2 =new Alert(Alert.AlertType.INFORMATION);
+        alert2.setTitle("Information dialog");
+        alert2.setHeaderText(null);
+        alert2.setContentText("Charge Has been Added !");
+        alert2.showAndWait();
+        
         } catch (SQLException ex) {
             Logger.getLogger(AffichierChargeController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
+        }}
     }
 
     @FXML
@@ -265,5 +353,60 @@ public class AffichierChargeController implements Initializable {
    
 
     }
+
+    
+
+    @FXML
+    private void showPro(ActionEvent event) {
+        try {
+            
+          
+                proData.clear();
+            ProviderCrud sl= new ProviderCrud();
+            // List<Command> list = sp.readAll();
+            proData.addAll(sl.readSome((String)bPro.getSelectionModel().getSelectedItem())); 
+            
+             p1.setCellValueFactory(new PropertyValueFactory<Provider,String>("id"));
+            p2.setCellValueFactory(new PropertyValueFactory<Provider,String>("mail"));
+            p3.setCellValueFactory(new PropertyValueFactory<Provider,String>("name"));
+            p4.setCellValueFactory(new PropertyValueFactory<Provider,Integer>("tel"));
+            p5.setCellValueFactory(new PropertyValueFactory<Provider,Integer>("password"));
+            tp.setItems(proData);
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(AffichierChargeController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void tri(ActionEvent event) {
+        
+        try {
+            datax.clear();
+            ChargeCrud se= new ChargeCrud();
+            // List<Command> list = sp.readAll();
+            if(c7.getSelectionModel().getSelectedItem().equals("All"))
+            {
+                datax.addAll(se.readAll());
+            }
+            else
+            {
+                datax.addAll(se.tri((String)c7.getSelectionModel().getSelectedItem()));
+            }
+            
+            tfId.setCellValueFactory(new PropertyValueFactory<Charge,Integer>("id"));
+            tfProvider.setCellValueFactory(new PropertyValueFactory<Charge,String>("provider"));
+            tfState.setCellValueFactory(new PropertyValueFactory<Charge,String>("state"));
+            tfPrice.setCellValueFactory(new PropertyValueFactory<Charge,Float>("price"));
+            tfDate.setCellValueFactory(new PropertyValueFactory<Charge,Date>("date"));
+            table.setItems(datax);
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(AffichierChargeController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+   
+    
     
 }

@@ -21,13 +21,16 @@
          </image>
       </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#242323" height="1000.0" layoutX="8.0" layoutY="9.0" opacity="0.72" stroke="#545454" strokeLineCap="BUTT" strokeType="INSIDE" strokeWidth="10.0" width="574.0" />
-    <Button fx:id="supprimer" layoutX="966.0" layoutY="785.0" minHeight="38.9998779296875" mnemonicParsing="false" onAction="#supprimer" prefHeight="68.0" prefWidth="254.0" stylesheets="@../css/style.css" text="supprimer" />
-    <Button fx:id="modifierex" layoutX="314.0" layoutY="621.0" mnemonicParsing="false" onAction="#modifierex" prefHeight="51.0" prefWidth="150.0" stylesheets="@../css/style.css" text="modifier">
+    <Button fx:id="supprimer" layoutX="966.0" layoutY="785.0" minHeight="38.9998779296875" mnemonicParsing="false" onAction="#supprimer" prefHeight="68.0" prefWidth="254.0" stylesheets="@../css/style.css" text="Delete">
+         <font>
+            <Font name="Perpetua" size="24.0" />
+         </font></Button>
+    <Button fx:id="modifierex" layoutX="308.0" layoutY="522.0" mnemonicParsing="false" onAction="#modifierex" prefHeight="51.0" prefWidth="150.0" stylesheets="@../css/style.css" text="Edit">
       <font>
         <Font size="18.0" />
       </font>
     </Button>
-    <Button fx:id="annuler" layoutX="1438.0" layoutY="910.0" mnemonicParsing="false" onAction="#annuler" prefHeight="46.0" prefWidth="100.0" stylesheets="@../css/style.css" text="annuler" />
+    <Button fx:id="annuler" layoutX="1438.0" layoutY="910.0" mnemonicParsing="false" onAction="#annuler" prefHeight="46.0" prefWidth="100.0" stylesheets="@../css/style.css" text="Exit" />
       <TableView fx:id="table" layoutX="596.0" layoutY="244.0" onMouseClicked="#fill" prefHeight="482.0" prefWidth="977.0">
         <columns>
           <TableColumn fx:id="tfId" prefWidth="121.60003662109375" text="ID" />
@@ -38,16 +41,35 @@
 
         </columns>
       </TableView>
-      <Button fx:id="bvalider" layoutX="143.0" layoutY="621.0" mnemonicParsing="false" onAction="#ajouter" prefHeight="51.0" prefWidth="149.0" stylesheets="@../css/style.css" text="valider">
+      <Button fx:id="bvalider" layoutX="143.0" layoutY="522.0" mnemonicParsing="false" onAction="#ajouter" prefHeight="51.0" prefWidth="149.0" stylesheets="@../css/style.css" text="Add">
          <font>
             <Font size="18.0" />
          </font></Button>
       <Label layoutX="37.0" layoutY="220.0" prefHeight="38.0" prefWidth="386.0" text="Date :" textAlignment="CENTER" />
-      <Label layoutX="37.0" layoutY="297.0" prefHeight="38.0" prefWidth="386.0" text="Provider :" />
       <TextField fx:id="bId" disable="true" layoutX="37.0" layoutY="181.0" opacity="0.0" prefHeight="38.0" prefWidth="42.0" />
       <TextField fx:id="bPrice" disable="true" layoutX="143.0" layoutY="181.0" opacity="0.0" prefHeight="38.0" prefWidth="42.0" />
       <TextField fx:id="bState" disable="true" layoutX="89.0" layoutY="181.0" opacity="0.0" prefHeight="38.0" prefWidth="42.0" />
-      <DatePicker fx:id="bDate" layoutX="108.0" layoutY="467.0" prefHeight="38.0" prefWidth="386.0" styleClass="input" stylesheets="@../css/style.css" />
-      <ComboBox fx:id="bPro" layoutX="108.0" layoutY="548.0" prefHeight="38.0" prefWidth="386.0" styleClass="input" stylesheets="@../css/style.css" />
+      <DatePicker fx:id="bDate" layoutX="99.0" layoutY="367.0" prefHeight="38.0" prefWidth="386.0" style="-fx-border-radius: 3;" styleClass="input" stylesheets="@../css/style.css" />
+      <ComboBox fx:id="bPro" layoutX="102.0" layoutY="446.0" onAction="#showPro" prefHeight="38.0" prefWidth="386.0" styleClass="input" stylesheets="@../css/style.css" />
+      <ImageView fitHeight="245.0" fitWidth="227.0" layoutX="169.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/logo%20+%20slogan.png" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" layoutX="47.0" layoutY="258.0" prefHeight="85.0" prefWidth="492.0" text="Add New Charge Request " textFill="#cd9826">
+         <font>
+            <Font name="Perpetua" size="48.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tp" layoutX="28.0" layoutY="652.0" prefHeight="94.0" prefWidth="534.0" stylesheets="@../css/style.css">
+        <columns>
+          <TableColumn fx:id="p1" prefWidth="71.99996757507324" text="Id" />
+          <TableColumn fx:id="p2" prefWidth="154.4000015258789" text="E-mail" />
+            <TableColumn fx:id="p3" prefWidth="93.5999755859375" text="Name" />
+            <TableColumn fx:id="p4" prefWidth="114.4000244140625" text="Phone Number" />
+            <TableColumn fx:id="p5" prefWidth="103.19998168945312" text="Password" />
+        </columns>
+      </TableView>
+      <ComboBox fx:id="c7" layoutX="915.0" layoutY="153.0" onAction="#tri" prefHeight="46.0" prefWidth="338.0" promptText="All" styleClass="input" stylesheets="@../css/style.css" />
   </children>
 </AnchorPane>

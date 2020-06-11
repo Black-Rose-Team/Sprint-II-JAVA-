@@ -65,7 +65,7 @@ public class ProviderCrud implements IProviderCrud<Provider>{
     public void ajouter(Provider e) throws SQLException
     {
    
-       PreparedStatement pre=con.prepareStatement("INSERT INTO `cycle`.`Provider` (`id`,`name`,`mail`,`tel`,`password`) VALUES ( ?, ?, ?, ?,?);");
+       PreparedStatement pre=con.prepareStatement("INSERT INTO `coco`.`Provider` (`id`,`name`,`mail`,`tel`,`password`) VALUES ( ?, ?, ?, ?,?);");
          
          e.setId(e.getAlphaNumericString(8));
          pre.setString(1, e.getId());
@@ -78,7 +78,7 @@ public class ProviderCrud implements IProviderCrud<Provider>{
        
        pre.executeUpdate();
        
-        sendMAil(e);
+        /*sendMAil(e);*/
             
             
     }
@@ -124,7 +124,7 @@ public class ProviderCrud implements IProviderCrud<Provider>{
      @Override
     public void delete(Provider  e) throws SQLException 
     {
-        String sql = "DELETE FROM `cycle`.`provider` where (id =\'"+e.getId()+"\');";
+        String sql = "DELETE FROM `coco`.`provider` where (id =\'"+e.getId()+"\');";
    //String sql = "INSERT INTO fos_user(username) VALUES ('"+c.getUsername()+"');";
   
     try {
@@ -141,7 +141,7 @@ public class ProviderCrud implements IProviderCrud<Provider>{
      @Override
     public void update(Provider e) throws SQLException 
     {
-          String sql ="UPDATE `cycle`.`Provider` SET `name`='"+e.getName()+ "',`mail`='" +e.getMail()+"',`tel`='" +e.getTel()+"',`password`='" +e.getPassword()+"' WHERE `id`='"+e.getId()+ "' ";
+          String sql ="UPDATE `coco`.`Provider` SET `name`='"+e.getName()+ "',`mail`='" +e.getMail()+"',`tel`='" +e.getTel()+"',`password`='" +e.getPassword()+"' WHERE `id`='"+e.getId()+ "' ";
   
     try {
             Statement stl = con.createStatement();
@@ -172,6 +172,34 @@ public class ProviderCrud implements IProviderCrud<Provider>{
     }
     
     
+    
+   public List<Provider> readSome(String idp) throws SQLException {
+    List<Provider> arr=new ArrayList<>();
+      PreparedStatement preparedStatement;
+        ResultSet rs;
+        
+    
+    String sql="select * from provider where id = ?";
+     
+             preparedStatement=con.prepareStatement(sql);
+             preparedStatement.setString(1, idp);
+             rs = preparedStatement.executeQuery();
+
+    while (rs.next()) {                
+               String id=rs.getString("id");
+               int tel=rs.getInt("tel"); 
+              int password=rs.getInt("password");     
+               String name=rs.getString("name");
+               String mail=rs.getString("mail");
+
+               Provider e=new Provider(id,name,mail,tel,password);
+               
+     arr.add(e);
+     }
+    return arr;
+    }
+   
+   
     
     public boolean  login(String id ,int password) throws SQLException {
         PreparedStatement preparedStatement;

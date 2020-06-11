@@ -4,15 +4,23 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="900.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/8.0.221" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AcceuilController">
+<AnchorPane id="AnchorPane" prefHeight="900.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AcceuilController">
   <children>
     <ImageView id="60637604_326473804657705_1780967833497239552_n" fitHeight="921.0" fitWidth="1621.0" layoutX="-17.0" layoutY="-16.0" pickOnBounds="true">
       <image>
-        <Image url="@../images/bg.jpg" />
+        <Image url="@../images/backGround.png" />
       </image>
     </ImageView>
-    <Button fx:id="bEmploye" layoutX="329.0" layoutY="526.0" mnemonicParsing="false" onAction="#gestione" prefHeight="256.0" prefWidth="980.0" style="-fx-background-color: &#10;        #ecebe9,&#10;        rgba(0,0,0,0.05),&#10;        linear-gradient(#dcca8a, #c7a740),&#10;        linear-gradient(#f9f2d6 0%, #f4e5bc 20%, #e6c75d 80%, #e2c045 100%),&#10;        linear-gradient(#f6ebbe, #e6c34d);&#10;    -fx-background-insets: 0,9 9 8 9,9,10,11;&#10;    -fx-background-radius: 50;&#10;    -fx-padding: 15 30 15 30;&#10;    -fx-font-family: &quot;Helvetica&quot;;&#10;    -fx-font-size: 18px;&#10;    -fx-text-fill: #311c09;&#10;    -fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.1) , 2, 0.0 , 0 , 1);" text="Charges Managements" />
-    <Button fx:id="bEntretien" layoutX="333.0" layoutY="150.0" mnemonicParsing="false" onAction="#gestionc" prefHeight="256.0" prefWidth="980.0" style="-fx-background-color: &#10;        #ecebe9,&#10;        rgba(0,0,0,0.05),&#10;        linear-gradient(#dcca8a, #c7a740),&#10;        linear-gradient(#f9f2d6 0%, #f4e5bc 20%, #e6c75d 80%, #e2c045 100%),&#10;        linear-gradient(#f6ebbe, #e6c34d);&#10;    -fx-background-insets: 0,9 9 8 9,9,10,11;&#10;    -fx-background-radius: 50;&#10;    -fx-padding: 15 30 15 30;&#10;    -fx-font-family: &quot;Helvetica&quot;;&#10;    -fx-font-size: 18px;&#10;    -fx-text-fill: #311c09;&#10;    -fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.1) , 2, 0.0 , 0 , 1);" text="Providers Managements" />
+    <Button fx:id="bEmploye" layoutX="331.0" layoutY="378.0" mnemonicParsing="false" onAction="#gestione" prefHeight="256.0" prefWidth="980.0" stylesheets="@../css/style.css" text="Charges Managements">
+         <font>
+            <Font name="Perpetua" size="60.0" />
+         </font></Button>
+    <Button fx:id="bEntretien" layoutX="325.0" layoutY="64.0" mnemonicParsing="false" onAction="#gestionc" prefHeight="256.0" prefWidth="980.0" stylesheets="@../css/style.css" text="Providers Managements">
+         <font>
+            <Font name="Perpetua" size="60.0" />
+         </font></Button>
+      <Button fx:id="blogout" layoutX="725.0" layoutY="723.0" mnemonicParsing="false" onAction="#annuler" prefHeight="137.0" prefWidth="137.0" stylesheets="@../css/style.css" text="Logout" />
   </children>
 </AnchorPane>

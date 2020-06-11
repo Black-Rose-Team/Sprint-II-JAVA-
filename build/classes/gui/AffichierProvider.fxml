@@ -19,9 +19,12 @@
             <Image url="@../images/backGround.png" />
          </image>
       </ImageView>
-    <Button fx:id="supprimer" layoutX="985.0" layoutY="772.0" minHeight="38.9998779296875" mnemonicParsing="false" onAction="#supprimer" prefHeight="82.0" prefWidth="254.0" stylesheets="@../css/style.css" text="supprimer" />
-    <Button fx:id="annuler" layoutX="1399.0" layoutY="906.0" mnemonicParsing="false" onAction="#annuler" prefHeight="70.0" prefWidth="158.0" style="-fx-background-color: &#10;        linear-gradient(#ffd65b, #e68400),&#10;        linear-gradient(#ffef84, #f2ba44),&#10;        linear-gradient(#ffea6a, #efaa22),&#10;        linear-gradient(#ffe657 0%, #f8c202 50%, #eea10b 100%),&#10;        linear-gradient(from 0% 0% to 15% 50%, rgba(255,255,255,0.9), rgba(255,255,255,0));&#10;    -fx-background-radius: 30;&#10;    -fx-background-insets: 0,1,2,3,0;&#10;    -fx-text-fill: #654b00;&#10;    -fx-font-weight: bold;&#10;    -fx-font-size: 14px;&#10;    -fx-padding: 10 20 10 20;" text="annuler" />
-      <TableView fx:id="table" layoutX="599.0" layoutY="200.0" onMouseClicked="#fill" prefHeight="548.0" prefWidth="978.0">
+    <Button fx:id="supprimer" layoutX="985.0" layoutY="798.0" minHeight="38.9998779296875" mnemonicParsing="false" onAction="#supprimer" prefHeight="82.0" prefWidth="254.0" stylesheets="@../css/style.css" text="Delete">
+         <font>
+            <Font name="Perpetua" size="24.0" />
+         </font></Button>
+    <Button fx:id="annuler" layoutX="1424.0" layoutY="925.0" mnemonicParsing="false" onAction="#annuler" prefHeight="51.0" prefWidth="134.0" stylesheets="@../css/style.css" text="Exit" />
+      <TableView fx:id="table" layoutX="607.0" layoutY="234.0" onMouseClicked="#fill" prefHeight="548.0" prefWidth="978.0">
         <columns>
           <TableColumn fx:id="tfId" prefWidth="96.800048828125" text="ID" />
           <TableColumn fx:id="tfName" minWidth="4.79998779296875" prefWidth="165.5999755859375" text="Name" />
@@ -41,12 +44,12 @@
             <Image url="@../images/logo%20+%20slogan.png" />
          </image>
       </ImageView>
-      <Button fx:id="bvalider" layoutX="22.0" layoutY="840.0" mnemonicParsing="false" onAction="#ajouter" prefHeight="68.0" prefWidth="246.0" stylesheets="@../css/style.css" text="valider">
+      <Button fx:id="bvalider" layoutX="22.0" layoutY="840.0" mnemonicParsing="false" onAction="#ajouter" prefHeight="68.0" prefWidth="246.0" stylesheets="@../css/style.css" text="Add">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button fx:id="modifierex" layoutX="303.0" layoutY="840.0" mnemonicParsing="false" onAction="#modifierex" prefHeight="68.0" prefWidth="246.0" stylesheets="@../css/style.css" text="modifier">
+      <Button fx:id="modifierex" layoutX="303.0" layoutY="840.0" mnemonicParsing="false" onAction="#modifierex" prefHeight="68.0" prefWidth="246.0" stylesheets="@../css/style.css" text="Edit">
          <font>
             <Font size="18.0" />
          </font>
@@ -71,10 +74,15 @@
             <Font name="Perpetua" size="64.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="749.0" layoutY="42.0" prefHeight="119.0" prefWidth="726.0" text="Your Providers List" textFill="#cd9826">
+      <Label alignment="CENTER" layoutX="749.0" layoutY="14.0" prefHeight="119.0" prefWidth="726.0" text="Your Providers List" textFill="#cd9826">
          <font>
             <Font name="Perpetua" size="96.0" />
          </font>
       </Label>
+      <TextField fx:id="tfsearch" alignment="CENTER" layoutX="852.0" layoutY="148.0" prefHeight="70.0" prefWidth="520.0" promptText="Search here" styleClass="input" stylesheets="@../css/style.css">
+         <font>
+            <Font name="Perpetua" size="24.0" />
+         </font>
+      </TextField>
   </children>
 </AnchorPane>

@@ -18,7 +18,7 @@ import java.sql.SQLException;
 
     public class DataBase {
         
-     String url = "jdbc:mysql://localhost:3306/cycle";
+     String url = "jdbc:mysql://localhost:3306/coco";
      String login = "root";
      String pwd = "";
     public  static DataBase db;

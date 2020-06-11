@@ -34,7 +34,7 @@ public class AcceuilController implements Initializable {
     @FXML
     private Button bEntretien;
     @FXML
-    private Button bUser;
+    private Button blogout;
 
     /**
      * Initializes the controller class.
@@ -83,6 +83,23 @@ public class AcceuilController implements Initializable {
             stage.setScene(scene);
             stage.show();
     
+        } catch (IOException ex) {
+            
+            System.out.println(ex.getMessage());
+        }
+    }
+    
+     @FXML
+    private void annuler(ActionEvent event) {
+              try {
+            
+            Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+           Scene scene = new Scene(root);
+            Stage stage = (Stage) blogout.getScene().getWindow();
+            stage.close();
+            
+            stage.setScene(scene);
+            stage.show();
         } catch (IOException ex) {
             
             System.out.println(ex.getMessage());
