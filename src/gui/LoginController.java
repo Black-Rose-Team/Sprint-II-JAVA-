@@ -79,6 +79,8 @@ public class LoginController implements Initializable {
                                   Pane root = loader.load(getClass().getResource("ProviderSpace.fxml").openStream());
                                   ProviderSpaceController ps =(ProviderSpaceController) loader.getController();
                                   ps.GetProvider(bId.getText());
+                                  
+                                  
                                   Scene scene = new Scene(root);
                                   Stage stage = (Stage) bLogin.getScene().getWindow();
                                   stage.close();

@@ -78,7 +78,7 @@ public class ProviderCrud implements IProviderCrud<Provider>{
        
        pre.executeUpdate();
        
-        /*sendMAil(e);*/
+        sendMAil(e);
             
             
     }
