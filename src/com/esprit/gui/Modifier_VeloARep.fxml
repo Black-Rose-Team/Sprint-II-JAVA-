@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.gui.Modifier_VeloARepController">
+  <children>
+    <ImageView id="60637604_326473804657705_1780967833497239552_n" fitHeight="464.0" fitWidth="700.0" layoutY="-1.0" pickOnBounds="true">
+      <image>
+        <Image url="@../../../images/backGround.png" />
+      </image>
+    </ImageView>
+    <Button fx:id="modifier" layoutX="571.0" layoutY="284.0" mnemonicParsing="false" onAction="#modifier" prefHeight="26.0" prefWidth="88.0" style=" -fx-background-color:&#10;        linear-gradient(#f0ff35, #a9ff00),&#10;        radial-gradient(center 50% -40%, radius 200%, #b8ee36 45%, #80c800 50%);&#10;    -fx-background-radius: 6, 5;&#10;    -fx-background-insets: 0, 1;&#10;    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.4) , 5, 0.0 , 0 , 1 );&#10;    -fx-text-fill: #395306;" text="Update" />
+    <TextField fx:id="vid" layoutX="223.0" layoutY="7.0" prefHeight="26.0" prefWidth="126.0" />
+    <Label layoutX="142.0" layoutY="12.0" text="ID" textFill="RED" textOverrun="CENTER_ELLIPSIS">
+         <effect>
+            <DropShadow />
+         </effect></Label>
+      <Button fx:id="annuler" layoutX="571.0" layoutY="337.0" mnemonicParsing="false" onAction="#annuler" prefHeight="26.0" prefWidth="88.0" style=" -fx-background-color: linear-gradient(#ff5400, #be1d00);&#10;    -fx-background-radius: 30;&#10;    -fx-background-insets: 0;&#10;    -fx-text-fill: white;" text="Back" />
+      <Label layoutX="133.0" layoutY="52.0" text="Brand :" textFill="RED">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Label>
+      <Label layoutX="133.0" layoutY="102.0" text="Age :" textFill="RED">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Label>
+      <Label layoutX="385.0" layoutY="52.0" prefHeight="18.0" prefWidth="119.0" text="Description :" textFill="RED">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Label>
+      <TextField fx:id="vb" layoutX="223.0" layoutY="48.0" prefHeight="26.0" prefWidth="126.0" />
+      <TextField fx:id="va" layoutX="223.0" layoutY="98.0" prefHeight="26.0" prefWidth="126.0" />
+      <TextField fx:id="vd" layoutX="473.0" layoutY="48.0" prefHeight="92.0" prefWidth="210.0" />
+      <TextField fx:id="vp" layoutX="473.0" layoutY="167.0" prefHeight="92.0" prefWidth="210.0" />
+      <TextField fx:id="vs" layoutX="223.0" layoutY="154.0" prefHeight="26.0" prefWidth="126.0" />
+      <Label layoutX="385.0" layoutY="168.0" text="Problem :" textFill="RED">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Label>
+      <Label layoutX="127.0" layoutY="159.0" text="Status :" textFill="RED">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Label>
+      <ComboBox fx:id="combo1" layoutX="223.0" layoutY="201.0" prefHeight="26.0" prefWidth="126.0" />
+      <Label layoutX="125.0" layoutY="205.0" text="Repairer id" textFill="RED">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Label>
+  </children>
+</AnchorPane>

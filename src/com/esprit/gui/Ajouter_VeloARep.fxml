@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.esprit.gui.Ajouter_VeloARepController">
+   <children>
+      <ImageView id="60637604_326473804657705_1780967833497239552_n" fitHeight="400.0" fitWidth="648.0" pickOnBounds="true">
+         <image>
+            <Image url="@../../../images/backGround.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="91.0" layoutY="84.0" text="Brand :" textFill="RED">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Label>
+      <Label layoutX="88.0" layoutY="134.0" text="Age :" textFill="RED">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Label>
+      <Label layoutX="335.0" layoutY="27.0" prefHeight="18.0" prefWidth="119.0" text="Description :" textFill="RED">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Label>
+      <TextField fx:id="tfMarque" layoutX="173.0" layoutY="79.0" prefHeight="26.0" prefWidth="126.0" />
+      <TextField fx:id="tfAge" layoutX="172.0" layoutY="129.0" prefHeight="26.0" prefWidth="126.0" />
+      <TextField fx:id="tfD" layoutX="423.0" layoutY="23.0" prefHeight="92.0" prefWidth="210.0" />
+      <Button fx:id="bvalider" layoutX="526.0" layoutY="338.0" mnemonicParsing="false" onAction="#ajouter" prefHeight="18.0" prefWidth="88.0" style=" -fx-background-color:&#10;        linear-gradient(#f0ff35, #a9ff00),&#10;        radial-gradient(center 50% -40%, radius 200%, #b8ee36 45%, #80c800 50%);&#10;    -fx-background-radius: 6, 5;&#10;    -fx-background-insets: 0, 1;&#10;    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.4) , 5, 0.0 , 0 , 1 );&#10;    -fx-text-fill: #395306;" text="Add">
+         <textFill>
+            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+               <stops>
+                  <Stop color="BLACK" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </textFill>
+      </Button>
+      <TextField fx:id="tfP" layoutX="425.0" layoutY="134.0" prefHeight="92.0" prefWidth="210.0" />
+      <Label layoutX="335.0" layoutY="143.0" text="Problem :" textFill="RED">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Label>
+      <Button fx:id="annuler" layoutX="14.0" layoutY="338.0" mnemonicParsing="false" onAction="#annuler" prefHeight="26.0" prefWidth="88.0" style=" -fx-background-color: linear-gradient(#ff5400, #be1d00);&#10;    -fx-background-radius: 30;&#10;    -fx-background-insets: 0;&#10;    -fx-text-fill: white;" text="Logout" />
+      <Button fx:id="show" layoutX="129.0" layoutY="337.0" mnemonicParsing="false" onAction="#show" prefHeight="26.0" prefWidth="88.0" style=" -fx-background-color:&#10;        linear-gradient(#f0ff35, #a9ff00),&#10;        radial-gradient(center 50% -40%, radius 200%, #b8ee36 45%, #80c800 50%);&#10;    -fx-background-radius: 6, 5;&#10;    -fx-background-insets: 0, 1;&#10;    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.4) , 5, 0.0 , 0 , 1 );&#10;    -fx-text-fill: #395306;" text="Show List">
+         <textFill>
+            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+               <stops>
+                  <Stop color="BLACK" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </textFill>
+      </Button>
+      <ComboBox fx:id="combo1" layoutX="173.0" layoutY="187.0" prefHeight="26.0" prefWidth="126.0" />
+      <Label layoutX="73.0" layoutY="191.0" text="Available reps" textFill="RED">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Label>
+      <Label layoutX="20.0" layoutY="11.0" text="Hello!" textFill="RED">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Label>
+      <Label fx:id="usr" layoutX="82.0" layoutY="10.0" prefHeight="18.0" prefWidth="154.0" />
+   </children>
+</AnchorPane>
